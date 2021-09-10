@@ -256,10 +256,13 @@ def mega_res_plot(f, S, n, markers = False, ghost_res = [False]):
     '''
     
     fig = plt.figure(figsize = (7,9))
-    magax = fig.add_axes([0.05, 0.85, 0.4, 0.25])
-    phax = fig.add_axes([0.55, 0.85, 0.4, 0.25])
+    
+    magax = fig.add_axes([0.05, 0.81, 0.4, 0.25])
+    phax = fig.add_axes([0.55, 0.81, 0.4, 0.25])
     compax = fig.add_axes([0.05, 0.05, .9, 0.7])
 
+    fig.suptitle("Above: A resonator seen 3 ways", fontsize = 14, y = -0.01)
+    
     magax.plot(f, np.abs(S))
     magax.plot(f[n], np.abs(S[n]), 'r*')
     magax.vlines(f[n], -1, 1.25, linestyles = 'dotted')
