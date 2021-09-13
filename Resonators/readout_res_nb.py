@@ -3,13 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_cable(n):
+def plot_cable(n, A0, A1, tau, phi):
     #cable params
     fs = np.arange(500, 1000)#A frequency comb from 500 MHz to 1 GHz
-    A0 = 0.95
-    A1 = -0.03/500
-    tau = 1/50
-    phi = 0
     
     #the cable!
     general_cable = res.general_cable(f = fs, 
@@ -306,11 +302,9 @@ def mega_res_plot(f, S, n, markers = False, ghost_res = [False]):
     
     return
 
-def full_res_look(freqs, f0, Q, ratio_Qc_Qi_exp, Qe_theta, A0, A1, tau, phi, m = False):
+def full_res_look(freqs, f0, Q, ratio_Qc_Qi, Qe_theta, A0, A1, tau, phi, m = False):
     '''Function to look at complex, phase, and amplitude S21 while varying cable 
     or resonator'''
-    
-    ratio_Qc_Qi = 10**ratio_Qc_Qi_exp# = Q_c/Q_i = real Qe/Qi
     
     Qe_real = Q*(1 + ratio_Qc_Qi)
 
